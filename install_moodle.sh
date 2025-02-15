@@ -38,7 +38,7 @@ run_command() {
             echo "Menjalankan 1st[INSTALL-1 Moodle - 1 MariaDB] For Silent"
             rm -rf ~/docker/moodlehaproxy/docker-compose.yml && \
             cp ~/docker/moodlehaproxy/docker-compose.yml.1st ~/docker/moodlehaproxy/docker-compose.yml && \
-            cd ~/docker/moodlehaproxy && docker-compose -p 'moodlehaproxy' up -d
+            cd ~/docker/moodlehaproxy && docker-compose -p 'moodlehaproxy' up --build -d
             ;;
         2)
             echo "Menjalankan 2nd[INSTALL-2 Moodle - 1 MariaDB - 1 Haproxy]"
@@ -50,7 +50,7 @@ run_command() {
             echo "Menjalankan 2nd[INSTALL-2 Moodle - 1 MariaDB - 1 Haproxy]"
              rm -rf ~/docker/moodlehaproxy/docker-compose.yml && \
              cp ~/docker/moodlehaproxy/docker-compose.yml.2nd ~/docker/moodlehaproxy/docker-compose.yml && \
-             cd ~/docker/moodlehaproxy && docker-compose -p 'moodlehaproxy' up -d
+             cd ~/docker/moodlehaproxy && docker-compose -p 'moodlehaproxy' up --build -d
              ;;
         3)
             echo "Menghentikan Service"
