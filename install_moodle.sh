@@ -12,6 +12,7 @@ show_menu() {
     echo "4)  START Service"
     echo "5)  REMOVE Service [ALL]"
     echo "6)  ViEW DIREKTORI"
+    echo "7)  WATCH Docker Stats"
     echo "x)  EXIT"
 }
 
@@ -47,11 +48,11 @@ run_command() {
             cd ~/docker/moodlehaproxy && docker-compose -p 'moodlehaproxy' up --build
             ;;
         2s)
-            echo "Menjalankan 2nd[INSTALL-2 Moodle - 1 MariaDB - 1 Haproxy]"
-             rm -rf ~/docker/moodlehaproxy/docker-compose.yml && \
-             cp ~/docker/moodlehaproxy/docker-compose.yml.2nd ~/docker/moodlehaproxy/docker-compose.yml && \
-             cd ~/docker/moodlehaproxy && docker-compose -p 'moodlehaproxy' up --build -d
-             ;;
+            echo "Menjalankan 2nd[INSTALL-2 Moodle - 1 MariaDB - 1 Haproxy] For Silent"
+            rm -rf ~/docker/moodlehaproxy/docker-compose.yml && \
+            cp ~/docker/moodlehaproxy/docker-compose.yml.2nd ~/docker/moodlehaproxy/docker-compose.yml && \
+            cd ~/docker/moodlehaproxy && docker-compose -p 'moodlehaproxy' up --build -d
+            ;;
         3)
             echo "Menghentikan Service"
             docker-compose -p 'moodlehaproxy' stop
@@ -67,6 +68,10 @@ run_command() {
         6)
             echo "Isi direktori /root/docker/moodlehaproxy:"
             ls -l ~/docker/moodlehaproxy
+            ;;
+        7)
+            echo "Memantau Statistik Docker"
+            watch -n 5 docker stats --no-stream
             ;;
         x)
             echo "Keluar"
