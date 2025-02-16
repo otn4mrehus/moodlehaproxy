@@ -11,6 +11,7 @@ show_menu() {
     echo "4)  START Service"
     echo "5)  REMOVE Service [ALL]"
     echo "6)  ViEW DIREKTORI"
+    echo "7)  WATCH Docker Stats"
     echo "x)  EXIT"
 }
 
@@ -57,6 +58,10 @@ run_command() {
             echo "Isi direktori /root/docker/moodlehaproxy:"
             ls -l ~/docker/moodlehaproxy
             ;;
+        7)
+            echo "Memantau Statistik Docker"
+            watch -n 5 docker stats --no-stream
+            ;;     
         x)
             echo "Keluar"
             exit 0
