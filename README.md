@@ -10,12 +10,12 @@
     cd ~/docker && \
     git clone https://github.com/otnamrehus/moodlehaproxy.git && \
     cd moodlehaproxy && \
+    mkdir -p mariadb_data/ moodle_data/ moodle_data/ && \ 
+    chmod -R 775 mariadb_data/ moodle_data/ moodle_data/ && \
     chmod +x install_moodle.sh
     
 # Installation
     ./install_moodle.sh
-
-
 
     # .....
     #1)  1st[INSTALL-1 Moodle - 1 MariaDB]  .:: Ctrl+C for Stop/Idle ::.
