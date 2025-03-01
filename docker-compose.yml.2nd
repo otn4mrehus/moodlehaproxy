@@ -12,6 +12,8 @@ services:
       - MARIADB_COLLATE=utf8mb4_unicode_ci
     volumes:
       - './mariadb_data:/bitnami/mariadb:rw'
+    restart: always
+
 
   moodle1:
     image: docker.io/bitnami/moodle:4.3
@@ -31,6 +33,8 @@ services:
       - './moodledata_data:/bitnami/moodledata:rw'
     depends_on:
       - mariadb
+    restart: always
+
 
   moodle2:
     image: docker.io/bitnami/moodle:4.3
@@ -50,6 +54,8 @@ services:
       - './moodledata_data:/bitnami/moodledata:rw'
     depends_on:
       - mariadb
+    restart: always
+
 
   haproxy:
     image: haproxy:latest
@@ -61,6 +67,8 @@ services:
     depends_on:
       - moodle1
       - moodle2
+    restart: always
+
 
 volumes:
   mariadb_data:
